@@ -40,3 +40,20 @@ This document provides a comparison of common Python functions, their brute forc
 | `reverse()`       | ``` def brute_reverse(s): return s[::-1]``` | ``` def custom_reverse(s): return ''.join(reversed(s))``` | String | Reverses a string. |
 | `split()`         | ``` def brute_split(s, sep): lst, word = [], ''; for char in s: if char == sep: lst.append(word); word = ''; else: word += char; lst.append(word); return lst``` | ``` def custom_split(s, sep): return s.split(sep)``` | String | Splits a string into a list using a separator. |
 | `join()`          | ``` def brute_join(lst, sep): result = ''; for i, word in enumerate(lst): result += word; if i < len(lst) - 1: result += sep; return result``` | ``` def custom_join(lst, sep): return sep.join(lst)``` | List, String | Concatenates a list of strings into a single string with a separator. |
+
+
+# Dictionary Functions
+
+This document provides a comparison of common dictionary-related Python functions, their brute force implementations, and custom efficient alternatives. It also specifies the data structure these functions operate on.
+
+## Dictionary Functions
+
+| Standard Function | Brute Force Function | Custom Efficient Function | Data Structure | Description |
+|-------------------|----------------------|---------------------------|----------------|-------------|
+| `get()`           | ``` def brute_get(d, key, default=None): return d[key] if key in d else default``` | ``` def custom_get(d, key, default=None): try: return d[key] except KeyError: return default``` | Dict | Retrieves a value for a given key, returning a default value if the key is not present. |
+| `keys()`          | ``` def brute_keys(d): return [key for key in d]``` | ``` def custom_keys(d): return list(d.keys())``` | Dict | Returns a list of all keys in a dictionary. |
+| `values()`        | ``` def brute_values(d): return [d[key] for key in d]``` | ``` def custom_values(d): return list(d.values())``` | Dict | Returns a list of all values in a dictionary. |
+| `items()`         | ``` def brute_items(d): return [(key, d[key]) for key in d]``` | ``` def custom_items(d): return list(d.items())``` | Dict | Returns a list of key-value pairs in a dictionary. |
+| `update()`        | ``` def brute_update(d1, d2): for key, value in d2.items(): d1[key] = value``` | ``` def custom_update(d1, d2): d1.update(d2)``` | Dict | Updates a dictionary with key-value pairs from another dictionary. |
+| `pop()`           | ``` def brute_pop(d, key, default=None): if key in d: value = d[key]; del d[key]; return value else: return default``` | ``` def custom_pop(d, key, default=None): return d.pop(key, default)``` | Dict | Removes a key from a dictionary and returns its value, or a default value if the key is not found. |
+
